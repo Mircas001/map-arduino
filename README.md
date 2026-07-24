@@ -39,3 +39,5 @@ assert_eq!(value_i32, 10);
 
 ## Credits 
 [Arduino](https://docs.arduino.cc/language-reference/en/functions/math/map/)
+
+[![Made by Human](https://madebyhuman.iamjarl.com/badges/made-white.svg)](https://madebyhuman.iamjarl.com)
