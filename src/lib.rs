@@ -50,7 +50,7 @@ pub fn map_i128(val: i128, in_min: i128, in_max: i128, out_min: i128, out_max: i
 }
 
 #[cfg(test)]
-mod tests {
+mod math_tests {
     use super::*;
 
     #[test]
