@@ -8,8 +8,8 @@ This is an library that is the rewrite of the arduino map function, but for ever
 - Will work forever, probably!
 
 ## Installation
-Not published in crates.io yet
-~~Add it via cargo:
+Not published in crates.io yet.              
+~~Add it via cargo:~~
 ```bash
 cargo add map-arduino
 ```
