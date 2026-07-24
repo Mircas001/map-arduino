@@ -1,5 +1,31 @@
-// * thanks Arduino, using your math
 #![no_std]
+//! # Map-arduino
+//! This is an library that is the rewrite of the arduino map function, but for every number type!
+//! ## Usage
+//! You use it the same way you would use the arduino map, just pick the type you want, in this example, it's u32:
+//! ```rust
+//! map_u32(value: u32, from_low: u32, from_high: u32, to_low:u32 , to_high:u32);
+//! ```
+//! However, it can be any standard number type available!
+//!
+//! Here's an example:
+//!
+//! ```rust
+//! use map_arduino::{map_f32, map_u32, map_i32};
+//!
+//! let value_f32 = map_f32(5.0, 0.0, 10.0, 0.0, 5.0);
+//! println!("f32 mapped value: {}", &value_f32);
+//! assert_eq!(value_f32, 2.5);
+//!
+//! let value_u32 = map_u32(5, 0, 10, 0, 20);
+//! println!("u32 mapped value: {}", &value_u32);
+//! assert_eq!(value_u32, 10);
+//!
+//! let value_i32 = map_i32(5, 0, 10, 0, 20);
+//! println!("i32 mapped value: {}", &value_i32);
+//! assert_eq!(value_i32, 10);
+//! ```
+mod tests;
 
 pub fn map_f32(val: f32, in_min: f32, in_max: f32, out_min: f32, out_max: f32) -> f32 {
     (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
@@ -47,135 +73,4 @@ pub fn map_i64(val: i64, in_min: i64, in_max: i64, out_min: i64, out_max: i64) -
 
 pub fn map_i128(val: i128, in_min: i128, in_max: i128, out_min: i128, out_max: i128) -> i128 {
     (val - in_min) * (out_max - out_min) / (in_max - in_min) + out_min
-}
-
-#[cfg(test)]
-mod math_tests {
-    use super::*;
-
-    #[test]
-    fn check_f32_whole() {
-        let result = map_f32(25.0, 0.0, 50.0, 0.0, 100.0);
-        assert_eq!(result, 50.0);
-    }
-    #[test]
-    fn check_f64_whole() {
-        let result = map_f64(25.0, 0.0, 50.0, 0.0, 100.0);
-        assert_eq!(result, 50.0);
-    }
-
-    #[test]
-    fn check_f32_half() {
-        let result = map_f32(25.0, 0.0, 50.0, 0.0, 25.0);
-        assert_eq!(result, 12.5);
-    }
-    #[test]
-    fn check_f64_half() {
-        let result = map_f64(25.0, 0.0, 50.0, 0.0, 25.0);
-        assert_eq!(result, 12.5);
-    }
-
-    #[test]
-    fn check_u8() {
-        let result = map_u8(5, 0, 10, 0, 20);
-        assert_eq!(result, 10);
-    }
-    #[test]
-    fn check_u16() {
-        let result = map_u16(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_u32() {
-        let result = map_u32(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_u64() {
-        let result = map_u64(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_u128() {
-        let result = map_u128(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-
-    #[test]
-    fn check_i8_positive() {
-        let result = map_i8(5, 0, 10, 0, 20);
-        assert_eq!(result, 10);
-    }
-    #[test]
-    fn check_i16_positive() {
-        let result = map_i16(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_i32_positive() {
-        let result = map_i32(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_i64_positive() {
-        let result = map_i64(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-    #[test]
-    fn check_i128_positive() {
-        let result = map_i128(25, 0, 50, 0, 100);
-        assert_eq!(result, 50);
-    }
-
-    #[test]
-    fn check_i8_negative() {
-        let result = map_i8(-5, 0, -10, 0, -20);
-        assert_eq!(result, -10);
-    }
-    #[test]
-    fn check_i16_negative() {
-        let result = map_i16(-25, 0, -50, 0, -100);
-        assert_eq!(result, -50);
-    }
-    #[test]
-    fn check_i32_negative() {
-        let result = map_i32(-25, 0, -50, 0, -100);
-        assert_eq!(result, -50);
-    }
-    #[test]
-    fn check_i64_negative() {
-        let result = map_i64(-25, 0, -50, 0, -100);
-        assert_eq!(result, -50);
-    }
-    #[test]
-    fn check_i128_negative() {
-        let result = map_i128(-25, 0, -50, 0, -100);
-        assert_eq!(result, -50);
-    }
-
-    #[test]
-    fn check_i8_integer() {
-        let result = map_i8(3, -5, 5, 0, 10);
-        assert_eq!(result, 8);
-    }
-    #[test]
-    fn check_i16_integer() {
-        let result = map_i16(3, -5, 5, 0, 10);
-        assert_eq!(result, 8);
-    }
-    #[test]
-    fn check_i32_integer() {
-        let result = map_i32(3, -5, 5, 0, 10);
-        assert_eq!(result, 8);
-    }
-    #[test]
-    fn check_i64_integer() {
-        let result = map_i64(3, -5, 5, 0, 10);
-        assert_eq!(result, 8);
-    }
-    #[test]
-    fn check_i128_integer() {
-        let result = map_i128(3, -5, 5, 0, 10);
-        assert_eq!(result, 8);
-    }
 }
