@@ -2,7 +2,7 @@
 name = "map-arduino"
 version = "0.1.0"
 edition = "2024"
-description = "Arduino style map functions for every number type."
+description = "Arduino-style map functions for every number type."
 
 [lib]
 name = "map_arduino"
