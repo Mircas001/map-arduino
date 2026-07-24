@@ -2,7 +2,7 @@
 name = "map-arduino"
 version = "0.1.0"
 edition = "2024"
-description = "Arduino-style map functions for every number type."
+description = "Adds functions to remap an number from one range to another, similar to the one you get in A'1rduino."
 
 [lib]
 name = "map_arduino"

@@ -1,6 +1,6 @@
 #![no_std]
-//! # Map-arduino
-//! This is an library that is the rewrite of the arduino map function, but for every number type!
+//! # map-arduino
+//! This crate provides functions to remap an number from one range to another, avaialable for every number typer, similar to Arduino.
 //! ## Usage
 //! You use it the same way you would use the arduino map, just pick the type you want, in this example, it's u32:
 //! ```rust
