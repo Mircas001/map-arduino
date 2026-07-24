@@ -4,7 +4,7 @@
 //! ## Usage
 //! You use it the same way you would use the arduino map, just pick the type you want, in this example, it's u32:
 //! ```rust
-//! map_u32(value: u32, from_low: u32, from_high: u32, to_low:u32 , to_high:u32);
+//! map_u32(value: u32, from_low: u32, from_high: u32, to_low: u32 , to_high: u32);
 //! ```
 //! However, it can be any standard number type available!
 //!
