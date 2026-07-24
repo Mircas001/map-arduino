@@ -1,6 +1,11 @@
 [package]
-name = "map_math"
+name = "map-arduino"
 version = "0.1.0"
 edition = "2024"
+description = "Arduino style map functions for every number type."
+
+[lib]
+name = "map_arduino"
+path = "src/lib.rs"
 
 [dependencies]
