@@ -1,5 +1,5 @@
 # Map-arduino
-This crate provides functions to remap an number from one range to another, avaialable for every number typer, similar to Arduino
+This crate is an rewrite of the arduino map function,  and provides said functions to remap an number from one range to another, avaialable for every number typer.
 
 ## Features:
 - Arduino-style Map function for every standard number type avaialable in rust!
