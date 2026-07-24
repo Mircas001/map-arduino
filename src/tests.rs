@@ -1,8 +1,6 @@
 #[cfg(test)]
 use crate::*;
 
-use super::*;
-
 #[test]
 fn check_f32_whole() {
     let result = map_f32(25.0, 0.0, 50.0, 0.0, 100.0);
