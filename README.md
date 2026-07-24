@@ -7,9 +7,8 @@ This is an library that is the rewrite of the arduino map function, but for ever
 - `no-std` compatible! (So your transition from the Arduino IDE is easier!)
 - Will work forever, probably!
 
-## Installation
-Not published in crates.io yet.              
-~~Add it via cargo:~~
+## Installation              
+Add it via cargo:
 ```bash
 cargo add map-arduino
 ```
